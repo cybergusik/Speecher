@@ -87,26 +87,26 @@ python gui.py
 ```
 **Поддерживаемые форматы:**
 Видео:
-- [ x ] mp4
-- [ x ] mov
-- [ x ] avi
-- [ x ] mkv
-- [ x ] webm
-- [ x ] flv
-- [ x ] f4v
-- [ x ] wmv
-- [ x ] mpeg
-- [ x ] mpg
-- [ x ] ogv
-- [ x ] gif
+- [x] mp4
+- [x] mov
+- [x] avi
+- [x] mkv
+- [x] webm
+- [x] flv
+- [x] f4v
+- [x] wmv
+- [x] mpeg
+- [x] mpg
+- [x] ogv
+- [x] gif
 Аудио:
-- [ x ] mp3
-- [ x ] wav
-- [ x ] m4a
-- [ x ] flac
-- [ x ] aac
-- [ x ] ogg
-- [ x ] wma
+- [x] mp3
+- [x] wav
+- [x] m4a
+- [x] flac
+- [x] aac
+- [x] ogg
+- [x] wma
 
 #### To-Do:
 - [ ] Добавить поддержку [GigaAM](https://github.com/salute-developers/GigaAM)
