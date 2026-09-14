@@ -4,7 +4,7 @@ Speecher — простое GUI приложение на python для лока
 
 ---
 
-#### Требования:
+### Требования:
 |            |        |
 | ---------- | ------ |
 | Python     | >= 3.9 |
@@ -23,7 +23,7 @@ Speecher — простое GUI приложение на python для лока
 
 ---
 
-#### Установка [ffmpeg](https://ffmpeg.org/):
+### Установка [ffmpeg](https://ffmpeg.org/):
 ```
 # debian-based
 sudo apt update && sudo apt install ffmpeg
@@ -41,13 +41,13 @@ choco install ffmpeg
 scoop install ffmpeg
 ```
 
-#### Клонирование репозитория:
+### Клонирование репозитория:
 ```
 git clone https://github.com/cybergusik/Speecher.git
 cd Speecher
 ```
 
-#### Создание и активация виртуального окружения(опционально):
+### Создание и активация виртуального окружения(опционально):
 ```
 # unix-based
 python3 -m venv .venv
@@ -58,7 +58,7 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-#### Установка зависимостей:
+### Установка зависимостей:
 ```
 # unix-based
 pip3 install -r requirements.txt
@@ -72,7 +72,7 @@ pip install -r requirements.txt
 > [!IMPORTANT]
 > При первом запуске скачается модель turbo, объемом ≈ 2Gb. Убедитесь, что вы готовы к установке
 
-#### Запуск:
+### Запуск:
 Графический интерфейс:
 ```
 # unix-based
@@ -112,6 +112,6 @@ python gui.py
 - [x] ogg
 - [x] wma
 
-#### To-Do:
+### To-Do:
 - [ ] Добавить поддержку [GigaAM](https://github.com/salute-developers/GigaAM)
 - [ ] Сделать сохранение промежуточных результатов и уже полностью обработанных данных в кэш
