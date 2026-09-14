@@ -1,5 +1,7 @@
 <div align="center">
-  <a href="./README.md">RU</a> | <a href="./README_EN.md">EN</a>
+
+[RU](./README.md) | [EN](./README_EN.md)
+
 </div>
 
 ![GUI](./images/preview1.png)
