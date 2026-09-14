@@ -11,9 +11,6 @@ import backend
 
 class Utils:
     def calculate_geometry(self, width: int, height: int):
-        """
-        Возвращает координаты для geometry со смещением к центру
-        """
         monitor = get_monitors()[0]
         x = (monitor.width // 2) - (width // 2)
         y = (monitor.height // 2) - (height // 2)

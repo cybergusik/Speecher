@@ -1,0 +1,4 @@
+screeninfo
+openai-whisper
+mlx_whisper
+moviepy
