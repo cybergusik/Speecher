@@ -83,7 +83,7 @@ python3 gui.py
 # windows
 python gui.py
 ```
-Также есть поддержка командой строки:
+Также есть поддержка командой строки для backend.py:
 ```
 Аргументы:
     --video <path_to_video_file>
