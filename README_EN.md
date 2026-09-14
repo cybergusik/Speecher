@@ -144,3 +144,4 @@ Audio:
 
 - [ ] Add support for [GigaAM](https://github.com/salute-developers/GigaAM)
 - [ ] Save intermediate results and fully processed data to cache
+- [ ] Add progressbar
