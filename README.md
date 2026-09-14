@@ -88,6 +88,7 @@ python gui.py
     --audio <path_to_audio_file>
 ```
 **Поддерживаемые форматы:**
+
 Видео:
 - [x] mp4
 - [x] mov
@@ -101,6 +102,7 @@ python gui.py
 - [x] mpg
 - [x] ogv
 - [x] gif
+
 Аудио:
 - [x] mp3
 - [x] wav
