@@ -67,7 +67,7 @@ pip3 install -r requirements.txt
 pip install -r requirements.txt
 ```
 
-> [!TIP]
+> [!IMPORTANT]
 > При первом запуске скачается модель turbo, объемом ≈ 2Gb. Убедитесь, что вы готовы к установке
 
 #### Запуск:
