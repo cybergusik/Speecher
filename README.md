@@ -5,12 +5,24 @@ Speecher — простое GUI приложение на python для лока
 ---
 
 ### Требования:
-| <!-- --> | <!-- --> |
-| -------- | -------- |
-| Python   | >= 3.9   |
-| ffmpeg   | any      |
-| RAM      | >= 8Gb   |
-| ROM      | >= 2Gb   |
+<table>
+  <tr>
+    <td>Python</td>
+    <td>&gt;= 3.9</td>
+  </tr>
+  <tr>
+    <td>ffmpeg</td>
+    <td>any</td>
+  </tr>
+  <tr>
+    <td>RAM</td>
+    <td>&gt;= 8Gb</td>
+  </tr>
+  <tr>
+    <td>ROM</td>
+    <td>&gt;= 2Gb</td>
+  </tr>
+</table>
 
 ---
 
