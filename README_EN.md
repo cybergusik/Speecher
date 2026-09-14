@@ -26,17 +26,17 @@ Speecher — a simple Python GUI application for local speech recognition from m
 
 ## Features
 
-* [x] **Graphical interface**
-* [x] **Command-line interface**
-* [x] **Fully local processing**
-* [x] **Support for most audio and video formats**
+- **Graphical interface**
+- **Command-line interface**
+- **Fully local processing**
+- **Support for most audio and video formats**
 
 ## Highlights
 
-* [x] **`0%` AI-generated code**
-* [x] **Cross-platform**
-* [x] **Minimalism**
-* [x] **Logging**
+- **`0%` AI-generated code**
+- **Cross-platform**
+- **Minimalism**
+- **Logging**
 
 ---
 
@@ -117,30 +117,30 @@ Arguments:
 
 Video:
 
-* [x] mp4
-* [x] mov
-* [x] avi
-* [x] mkv
-* [x] webm
-* [x] flv
-* [x] f4v
-* [x] wmv
-* [x] mpeg
-* [x] mpg
-* [x] ogv
-* [x] gif
+- [x] mp4
+- [x] mov
+- [x] avi
+- [x] mkv
+- [x] webm
+- [x] flv
+- [x] f4v
+- [x] wmv
+- [x] mpeg
+- [x] mpg
+- [x] ogv
+- [x] gif
 
 Audio:
 
-* [x] mp3
-* [x] wav
-* [x] m4a
-* [x] flac
-* [x] aac
-* [x] ogg
-* [x] wma
+- [x] mp3
+- [x] wav
+- [x] m4a
+- [x] flac
+- [x] aac
+- [x] ogg
+- [x] wma
 
 ### To-Do:
 
-* [ ] Add support for [GigaAM](https://github.com/salute-developers/GigaAM)
-* [ ] Save intermediate results and fully processed data to cache
+- [ ] Add support for [GigaAM](https://github.com/salute-developers/GigaAM)
+- [ ] Save intermediate results and fully processed data to cache
