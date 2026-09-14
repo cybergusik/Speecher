@@ -4,7 +4,6 @@
 
 </div>
 
-
 ![GUI](./images/preview1.png)
 ![GUI](./images/preview2.png)
 
