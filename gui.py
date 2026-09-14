@@ -72,7 +72,7 @@ class Gui(tk.Tk):
         # self.resizable(False, False)
 
     def _init_widgets(self):
-        self.title_lable = tk.Label(master=self, text="Распознование речи OpenAI Whisper", font=self.header_font)
+        self.title_lable = tk.Label(master=self, text="Распознавание речи OpenAI Whisper", font=self.header_font)
         self.title_lable.pack(pady=20)
 
         self.frame_for_buttons = tk.Frame(master=self)
