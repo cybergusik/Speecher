@@ -81,14 +81,17 @@ class Gui(tk.Tk):
         self.open_button = tk.Button(master=self.frame_for_buttons, text="Открыть аудио или видео файл", command=self.choice_file)
         self.open_button.pack(expand=True, fill="both", side="left")
 
+        self.save_button = tk.Button(master=self.frame_for_buttons, text="Сохранить распознанный текст", command=self.save_text, state="disabled")
+        self.save_button.pack(expand=True, fill="both", side="right")
+
         self.copy_button = tk.Button(master=self.frame_for_buttons, text="Скопировать распознанный текст", command=self.copy_text, state="disabled")
         self.copy_button.pack(expand=True, fill="both", side="right")
 
         self.log_text = tk.Text(master=self, height=10, state="disabled")
-        self.log_text.pack(expand=True, fill="both", padx=50, pady=(10, 5))
+        self.log_text.pack(expand=True, fill="both", padx=30, pady=(10, 5))
 
         self.result_text = tk.Text(master=self, state="disabled")
-        self.result_text.pack(expand=True, fill="both", padx=50, pady=(5, 10))
+        self.result_text.pack(expand=True, fill="both", padx=30, pady=(5, 10))
 
 
     def add_log(self, chars: str):
@@ -129,11 +132,24 @@ class Gui(tk.Tk):
         self.result_text.config(state="disabled")
 
         self.copy_button.config(state="normal")
+        self.save_button.config(state="normal")
 
     def copy_text(self):
         self.add_log("Копирование текста")
         self.clipboard_clear()
         self.clipboard_append(self.recognized_text)
+
+    def save_text(self):
+        self.add_log("Открытие окна сохранение в txt")
+        filepath = filedialog.asksaveasfilename(filetypes=[("Plain text", "*.txt")])
+        if not filepath:
+            self.add_log("Путь не выбран")
+            return
+        self.add_log(f"Сохранение в {filepath}")
+
+        with open(filepath, "w") as file:
+            file.write(self.recognized_text + "\n")
+
 
 
 def main():
