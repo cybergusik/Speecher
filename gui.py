@@ -191,9 +191,10 @@ class Gui(tk.Tk):
 
 
     def finish_recognition(self, recognized_text):
-        self.utils.save_cache(self)
-        self.add_log("Вставка текста")
         self.recognized_text = recognized_text
+        self.utils.save_cache(self)
+
+        self.add_log("Вставка текста")
 
         self.result_text.config(state="normal")
         self.result_text.delete(index1="1.0", index2="end")
