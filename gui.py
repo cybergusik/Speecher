@@ -59,21 +59,21 @@ class Utils:
 
 
     def save_cache(self, root):
-        sha256_16 = self.get_hash(root.filepath)
-        check_sha256_16 = [item.name != sha256_16 for item in self.res_path.iterdir() if item.is_file()]
+        sha256_15 = self.get_hash(root.filepath)
+        check_sha256_15 = [item.name != sha256_15 for item in self.res_path.iterdir() if item.is_file()]
 
-        if all(check_sha256_16):
-            with open(self.res_path / sha256_16, "w", encoding="utf-8") as file:
+        if all(check_sha256_15):
+            with open(self.res_path / sha256_15, "w", encoding="utf-8") as file:
                 root.add_log("Сохраняем в кэш")
                 file.write(root.recognized_text + "\n")
 
 
     def try_load_cache(self, root)->bool:
-        sha256_16 = self.get_hash(root.filepath)
+        sha256_15 = self.get_hash(root.filepath)
         files = [item.name for item in self.res_path.iterdir() if item.is_file()]
 
-        if sha256_16 in files:
-            with open(self.res_path / sha256_16) as file:
+        if sha256_15 in files:
+            with open(self.res_path / sha256_15) as file:
                 root.add_log("Найден кэш, пропускаем распознавание")
                 root.finish_recognition(file.read())
                 return True
