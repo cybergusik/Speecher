@@ -10,7 +10,7 @@ else:
     model = whisper.load_model("turbo")
 
 
-def get_audio(video_path, root=None)->str|None:
+def get_audio(video_path, root=None) -> str | None:
     try:
         video = VideoFileClip(video_path)
         audio = video.audio
@@ -39,7 +39,7 @@ def get_audio(video_path, root=None)->str|None:
             root.add_log(text_error)
 
 
-def recognition(audio_path, root=None)->str|None:
+def recognition(audio_path, root=None) -> str | None:
     try:
         if platform.system() == "Darwin":
             result = mlx_whisper.transcribe(str(audio_path), path_or_hf_repo="mlx-community/whisper-large-v3-turbo")

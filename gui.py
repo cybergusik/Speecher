@@ -6,14 +6,15 @@ from screeninfo import get_monitors
 from datetime import datetime
 
 import threading
-from pathlib import Path
 import hashlib
+from pathlib import Path
 
 import backend
 
 
 class Utils:
-    def __init__(self):
+    def __init__(self, root):
+        self.root = root
         system = platform.system()
 
         home = Path.home()
@@ -48,7 +49,7 @@ class Utils:
         thread.start()
 
 
-    def get_hash(self, filepath)->str:
+    def get_hash(self, filepath) -> str:
         sha256_hash = hashlib.sha256()
         
         with open(filepath, "rb") as f:
@@ -58,33 +59,34 @@ class Utils:
         return sha256_hash.hexdigest()[:15]
 
 
-    def save_cache(self, root):
-        sha256_15 = self.get_hash(root.filepath)
+    def save_cache(self):
+        sha256_15 = self.get_hash(self.root.filepath)
         check_sha256_15 = [item.name != sha256_15 for item in self.res_path.iterdir() if item.is_file()]
 
         if all(check_sha256_15):
             with open(self.res_path / sha256_15, "w", encoding="utf-8") as file:
-                root.add_log("Сохраняем в кэш")
-                file.write(root.recognized_text + "\n")
+                self.root.add_log("Сохраняем в кэш")
+                file.write(self.root.recognized_text + "\n")
 
 
-    def try_load_cache(self, root)->bool:
-        sha256_15 = self.get_hash(root.filepath)
+    def try_load_cache(self) -> bool:
+        sha256_15 = self.get_hash(self.root.filepath)
         files = [item.name for item in self.res_path.iterdir() if item.is_file()]
 
         if sha256_15 in files:
             with open(self.res_path / sha256_15) as file:
-                root.add_log("Найден кэш, пропускаем распознавание")
-                root.finish_recognition(file.read())
+                self.root.add_log("Найден кэш, пропускаем распознавание")
+                self.root.finish_recognition(file.read())
                 return True
         return False
+
 
 
 class Gui(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.utils = Utils()
+        self.utils = Utils(self)
 
         self.auidotypes = [
             ("MP3 Audio", "*.mp3"),
@@ -173,7 +175,7 @@ class Gui(tk.Tk):
         self.add_log(f"Выбран файл {filepath}")
         self.filepath = Path(filepath)
 
-        if self.utils.try_load_cache(self):
+        if self.utils.try_load_cache():
             return
 
         for d, t in self.videotypes:
@@ -183,7 +185,7 @@ class Gui(tk.Tk):
                 break
         else:
             self.start_recognition(self.filepath)
-        
+
 
     def start_recognition(self, audio_path):
         self.add_log(f"Начинаем распознование текста из аудио")
@@ -192,7 +194,7 @@ class Gui(tk.Tk):
 
     def finish_recognition(self, recognized_text):
         self.recognized_text = recognized_text
-        self.utils.save_cache(self)
+        self.utils.save_cache()
 
         self.add_log("Вставка текста")
 
@@ -227,6 +229,7 @@ class Gui(tk.Tk):
 def main():
     app = Gui()
     app.mainloop()
+
 
 if __name__ == "__main__":
     main()
