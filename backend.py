@@ -80,7 +80,7 @@ def recognition(audio_path, root=None) -> str | None:
         if platform.system() == "Darwin":
             result = mlx_whisper.transcribe(str(audio_path), path_or_hf_repo="mlx-community/whisper-large-v3-turbo")
         else:
-            result = model.transcribe(audio_path)
+            result = model.transcribe(str(audio_path))
 
         if not root:
             return result["text"]
