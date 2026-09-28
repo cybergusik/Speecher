@@ -64,7 +64,7 @@ scoop install ffmpeg
 1. Установка [бинарного файла](https://ffmpeg.org/download.html) ffmpeg(для windows можно воспользоваться сборкой от [gyan dev](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-github))
 2. Далее необходимо распаковать ffmpeg в удобный вам каталог
 3. Для Speecher не обязательно добавлять добавлять ffmpeg в PATH, достаточно указать выбранный вами путь в переменной FFMPEG_PATH в `backend.py`
-> FFMPEG_PATH = r"your/path/to/ffmpeg"
+> FFMPEG_PATH = r"your\path\to\ffmpeg"
 
 ### Клонирование репозитория:
 
