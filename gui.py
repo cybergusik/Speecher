@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, font, filedialog
+from tkinter import font, filedialog, messagebox
 
 import platform
 from screeninfo import get_monitors
@@ -8,6 +8,7 @@ from datetime import datetime
 import threading
 import hashlib
 from pathlib import Path
+from sys import exit as sys_exit
 
 import backend
 
@@ -85,6 +86,12 @@ class Utils:
 class Gui(tk.Tk):
     def __init__(self):
         super().__init__()
+
+        if not backend.init():
+            self.focus_force()
+            self.withdraw()
+            messagebox.showerror("Ошибка", "ffmpeg не найден!")
+            sys_exit(0)
 
         self.utils = Utils(self)
 

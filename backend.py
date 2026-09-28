@@ -1,13 +1,49 @@
-from moviepy import VideoFileClip
 import argparse
 import platform
+import subprocess
+import os
+from sys import exit as sys_exit
+from abc import ABC
 
 
-if platform.system() == "Darwin":
-    import mlx_whisper
-else:
-    import whisper
-    model = whisper.load_model("turbo")
+class VideoFileClip(ABC):
+    def __init__(self, filename):
+        pass
+
+
+FFMPEG_PATH = r"" # <-- set path to ffmpeg if you need
+
+def init() -> bool:
+    if FFMPEG_PATH:
+        os.environ["FFMPEG_BINARY"] = FFMPEG_PATH
+        os.environ["IMAGEIO_FFMPEG_EXE"] = FFMPEG_PATH
+        os.environ["PATH"] += os.path.pathsep + os.path.dirname(FFMPEG_PATH)
+
+    try:
+        result = subprocess.run(
+            ["ffmpeg", "-version"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            check=True,
+        )
+        print(result.stdout.splitlines()[0])
+
+        from moviepy import VideoFileClip
+
+        if platform.system() == "Darwin":
+            global mlx_whisper
+            import mlx_whisper
+        else:
+            import whisper
+
+            global model
+            model = whisper.load_model("turbo")
+
+        return True
+    except Exception as e:
+        print(e)
+        return False
 
 
 def get_audio(video_path, root=None) -> str | None:
@@ -61,6 +97,10 @@ def recognition(audio_path, root=None) -> str | None:
 
 
 def main():
+    if not init():
+        print("ffmpeg не найден!")
+        sys_exit(0)
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--audio")
     parser.add_argument("--video")
